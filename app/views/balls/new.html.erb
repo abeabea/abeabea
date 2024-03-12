@@ -1,0 +1,28 @@
+<h1>ルール</h1>
+<h3>新規投稿</h3>
+<%= form_for @ball do |f| %>
+
+  <div class="field">
+    <%= f.label :rule %>
+    <%= f.text_field :rule, :size => 30 %>
+  </div>
+
+
+  <div class="field">
+    <%= f.label :genre  %>
+    <%= f.select :genre,
+    [["バイオレーション", "バイオレーション"], 
+    ["ファール", "ファール"], 
+    ["得点", "得点"],["コート","コート"],["その他","その他"]], include_blank: "選択して下さい" %>
+  </div>
+
+
+  <div class="field">
+    <%= f.label :about  %>
+    <%= f.text_area :about, :size => "30x2" %>
+  </div>
+
+  <%= f.submit "ルールを投稿する" %>
+<% end %>
+
+<%= link_to "ルール一覧に戻る", balls_path %>

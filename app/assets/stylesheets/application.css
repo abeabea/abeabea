@@ -1,0 +1,114 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ * {
+    padding: 0;
+    margin: 0;
+  }
+  body {
+
+    width: 100%;
+    border:1px solid #000000;/* 枠線 */
+    box-sizing:border-box;
+
+    font-family: "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "メイリオ",
+      Meiryo, "ＭＳ Ｐゴシック", sans-serif;
+  }
+  @media screen and (max-width: 767px){
+    body {
+        border: 0px solid #000000;/* SP枠線の幅 */
+    }
+    }
+
+
+
+    
+
+  header {
+    background-color: #ffffff;
+    height: 100px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border:0.1px solid #7a7a7a;
+
+  }
+
+  
+  header a {
+    color: rgb(114, 18, 18); 
+    text-decoration: none;
+   
+  }
+
+  header h1 {
+    color: rgb(0, 0, 0);
+ 
+  }
+
+  header h2 {
+    color: rgb(0, 0, 0);
+    margin-left: 0px;
+  }
+
+  header h3 {
+    color: rgb(0, 0, 0);
+    margin-left: 00px;
+  }
+
+  header h4 {
+    color: rgb(0, 0, 0);
+    margin-left: 20px;
+    margin-right: 0px;
+  }
+
+  .header-list {
+    display: flex;
+   
+    text-align: right;
+    align-items: center;
+  }
+  header ul {
+    display: flex;
+  }
+  header li {
+    list-style: none;
+    margin-right: 40px;
+  }
+
+
+.main{
+  
+}
+
+
+/* 
+  .first-block {
+    height: 60px;
+    background-color: #ffffff;
+    border:0.1px solid #c9c9c9;
+  }
+  
+  .second-block {
+    height: 500px;
+    background-color: #ffffff;
+  }
+  
+  .third-block {
+    height: 50px;
+    background-color: #000000;
+  }
+   */
