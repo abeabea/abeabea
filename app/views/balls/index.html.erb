@@ -1,13 +1,82 @@
-<%= stylesheet_link_tag 'index', :media => "all" %>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <link rel="stylesheet" href="./stylesheets/index.css">
+    </head>
+    <body>
+        <div class="first">
+            <section id="first-block">
+                <div class="top-block">Basketball rules </div>
+                </div>
+            </section>
+            <section id="second-block">
+                <p class="info-title">
+                    バスケットボールって、
+                    <br>
+                    どんなスポーツ？
+                    <br></br>
+                </p>
+                <div class="about-container">
+                    <p class="info-text">
+                        <b>基本情報</b>
+                        <span class="font-small">
+                            <br>
+                            5人ずつの2つのチームで、
+                            <br>
+                            相手チームが防御するリングに
+                            <br>
+                            シュートを入れて
+                            <br>
+                            得点を競い合う球技です。
+                        </span>
+                    </p>
 
+                    <p class="info-text">
+                        <b>競技特性</b>
+                        <span class="font-small">
+                            <br>
+                            スピード感満載な上、
+                            <br>
+                            プレイヤー同士の
+                            <br>
+                            接触プレーが多いことが特徴です。
+                            <br>
+                            速さと強さのどちらも求められます。
+                        </span>
+                    </p>
 
-<% if user_signed_in? %>
-<%= link_to "マイページへ", user_path(current_user.id) %>
-<% end %>
-
-<div class="signup-wrapper">
-</div>
-
-<% @balls.each do |t| %>
-
-<% end %>
+                    <p class="info-text">
+                        <b>試合時間</b>
+                        <span class="font-small">
+                            <br>
+                            試合は10分4クォーターの
+                            <br>
+                            計40分で行われます。
+                            <br>
+                            勝敗が決まらない場合は、
+                            <br>
+                            延長戦を行います。
+                        </span>
+                    </p>
+                </div>
+            </section>
+            <div class="select">
+                <div class="se-title">
+                    <div class="se-list">
+                        <p><%= link_to "SCORE", balls_score_path %></p>
+                        <p><%= link_to "POSITION", balls_position_path %></p>
+                    </div>
+                    <div class="se-list">
+                        <p><%= link_to "FOUL", balls_foul_path %></p>
+                        <p><%= link_to "VIOLATIONS", balls_vio_path %></p>
+                    </div>
+                    <div class="se-list">
+                        <p><%= link_to "COURT", balls_court_path %></p>
+                        <p><%= link_to "OTHER RULES", balls_other_path %></p>
+                    </div>
+                <div>
+            </div>
+        </div>
+    </body>
+</html>

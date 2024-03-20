@@ -1,26 +1,50 @@
-<h1>マイページ</h1>
-<p>名前 : <%= @user.name %></p>
-<p>メールアドレス : <%= @user.email %></p>
-<p>プロフィール : <%= @user.profile %></p>
-<%= image_tag @user.image_url, size: "250x200" if @user.image? %>
 
-<% if current_user.id == @user.id %>
-  <%= link_to "編集する", edit_user_registration_path %>
-<% end %>
-
-<h2>ユーザーの投稿一覧</h2>
-<% @user.balls.each do |t| %>
-  <%= t.user.name %>
-  <%= t.rule %>
-<% end %>
+<%= stylesheet_link_tag 'show', :media => "all" %>
 
 
-<h2>ユーザーがいいねした投稿一覧</h2>
-<% @user.liked_balls.each do |t| %>
-  <%= t.user.name %>
-  <%= t.rule %>
-<% end %>
-<!-- ここまで-->
+<div class="mypage0">
+  <div class="mypage1">
+    <div class="mypage2">
+      <div class="mytitle">
+        マイページ
+      </div>
 
-<%= link_to "ルール一覧に戻る", balls_path %>
-<%= image_tag @user.image_url, size: "250x200" if @user.image? %>
+      <div class="item">
+        <p>名前 : <%= @user.name %><br>
+        メールアドレス : <%= @user.email %><br>
+        プロフィール : <%= @user.profile %><br></p>
+        <%= image_tag @user.image_url, size: "250x200" if @user.image? %>
+      </div>
+    
+      <% if current_user.id == @user.id %>
+        <%= link_to "編集する", edit_user_registration_path %>
+        <div class"logout">
+        <%= button_to 'ログアウト', destroy_user_session_path, method: :delete %>
+        </div>
+      <% end %>
+
+      <div class="users">
+        <div class="toko">
+          <div class="mytitle">
+            投稿
+          </div>
+          <% @user.balls.each do |t| %>   
+            <%= t.rule %>
+            <%= t.about %>
+          <% end %>
+        </div>
+
+        <div class="iine">
+          <div class="mytitle">
+            いいね
+          </div>
+          <% @user.liked_balls.each do |t| %>
+            <%= t.user.name %>
+            <%= t.rule %>
+            <%= t.about %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

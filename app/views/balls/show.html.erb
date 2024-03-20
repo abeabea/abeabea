@@ -1,7 +1,9 @@
-<h1>バスケのルール</h1>
-<h3>ルール詳細</h3>
+<h1>投稿詳細</h1>
+<h2>ルール詳細</h2>
 <div class="ball">
   <p><%= @ball.rule %></p>
+  <p><%= @ball.genre %></p>
+  <p><%= @ball.about %></p>
   <p><%= @ball.created_at %></p>
 
   <% if user_signed_in? %>
@@ -19,20 +21,21 @@
       <i class="fa-solid fa-heart"></i><%= @ball.likes.count %>
     <% end %>
 
-   <%= link_to "編集する", edit_ball_path(@ball.id) %>
+   
   </div>
+
 
 <h2>いいねしたユーザー</h2>
 <% @ball.liked_users.each do |user| %>
-  <li><%= user.email %></li>
+  <li><%= user.name %></li>
 <% end %>
 
 
 <div class="comment-wrapper">
-  <p>コメント一覧</p>
+  <h2>コメント一覧</h2>
   <% @comments.each do |c| %>
     <div>
-      <%= c.user.email unless c.user.blank? %>
+      <%= c.user.name unless c.user.blank? %>
       <br>
       <%= c.content %>
     </div>
@@ -51,5 +54,4 @@
 
 
 <%= link_to "ルール一覧に戻る", balls_path %>
-<%= link_to "編集する", edit_ball_path(@ball.id) %>
 

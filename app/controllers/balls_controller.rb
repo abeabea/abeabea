@@ -61,6 +61,61 @@ class BallsController < ApplicationController
         end
       end
 
+      def foul
+        if params[:search] != nil && params[:search] != ''
+          search = params[:search]
+          @balls = Ball.joins(:user).where("rule LIKE ? OR genre LIKE ?", "%#{search}%", "%#{search}%")
+        else
+          @balls = Ball.all
+        end
+      end
+
+      def score
+        if params[:search] != nil && params[:search] != ''
+          search = params[:search]
+          @balls = Ball.joins(:user).where("rule LIKE ? OR genre LIKE ?", "%#{search}%", "%#{search}%")
+        else
+          @balls = Ball.all
+        end
+      end
+
+      def vio
+        if params[:search] != nil && params[:search] != ''
+          search = params[:search]
+          @balls = Ball.joins(:user).where("rule LIKE ? OR genre LIKE ?", "%#{search}%", "%#{search}%")
+        else
+          @balls = Ball.all
+        end
+      end
+
+      def court
+        if params[:search] != nil && params[:search] != ''
+          search = params[:search]
+          @balls = Ball.joins(:user).where("rule LIKE ? OR genre LIKE ?", "%#{search}%", "%#{search}%")
+        else
+          @balls = Ball.all
+        end
+      end
+
+      def other
+        if params[:search] != nil && params[:search] != ''
+          search = params[:search]
+          @balls = Ball.joins(:user).where("rule LIKE ? OR genre LIKE ?", "%#{search}%", "%#{search}%")
+        else
+          @balls = Ball.all
+        end
+      end
+
+      def aruaru
+        if params[:search] != nil && params[:search] != ''
+          search = params[:search]
+          @balls = Ball.joins(:user).where("rule LIKE ? OR genre LIKE ?", "%#{search}%", "%#{search}%")
+        else
+          @balls = Ball.all
+        end
+      end
+
+
 
       private
       def ball_params

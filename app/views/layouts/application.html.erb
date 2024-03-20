@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <link href="https://unpkg.com/boxicons@2.0.4/css/boxicons.min.css" rel="stylesheet"
     <script src="https://kit.fontawesome.com/9f12b2e260"  crossorigin="anonymous"></script> 
      
 
@@ -19,38 +19,43 @@
 
   <body>
     <header>
-      <h4>分かると面白い</h4>
-      <h1>バスケ基本情報</h1>
-
+      <div class="bo-title">
+        <%= link_to "バスケ", balls_path ,class:"bo-title" %>
+      </div>
       <div class="header-list">
-      <ul>
-
-       <% if user_signed_in? %>
-        <li><%= button_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
-       <% else %>
-        <li><%= link_to "新規登録", new_user_registration_path %></li>
-        <li><%= link_to "ログイン", new_user_session_path %></li>
-       <% end %>
-
+        <ul>
+          <% if user_signed_in? %>
+            <%= link_to "マイページ", user_path(current_user.id) ,class:"log" %>
+            <div id="menu">
+              <input type="checkbox" id="menu-btn-check">
+              <label for="menu-btn-check" id="menu-btn"><span></span></label>
+              <div id="menu-content">
+                <ul>
+                  <li><p>MENU</p></li>
+                  <li><%= link_to "SCORE", balls_score_path %></li>
+                  <li><%= link_to "POSITION", balls_position_path %></li>
+                  <li><%= link_to "FOUL", balls_foul_path %></li>
+                  <li><%= link_to "VIOLATIONS", balls_vio_path %></li>
+                  <li><%= link_to "COURT", balls_court_path %></li>
+                  <li><%= link_to "OTHER RULES", balls_other_path %></li>
+                </ul>
+              </div>
+          </div>
+          <% else %>
+            <%= link_to "新規登録", new_user_registration_path ,class:"log" %>
+            <%= link_to "ログイン", new_user_session_path ,class:"log" %>
+          <% end %>
         </ul>
       </div>
     </header>
-   
-    <main>
-    <%= yield %>
-    </main>
-
-
-    <div class="first-block">
-      <%= link_to "ポジション",  balls_position_path %>
-    </div>
-
-    <div class="second-block">
-    </div>
-
-    <div class="third-block">
-    </div>
-
-    
   </body>
+   
+  <main>
+    <%= yield %>
+  </main>
+
+  <footer>
+
+  </footer>
 </html>
+
